@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.work.dao.WorkDailyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.work.entity.WorkDailyEntity" id="workDailyMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="workDate" column="work_date"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="planTask" column="plan_task"/>
+        <result property="actualTask" column="actual_task"/>
+        <result property="workSummary" column="work_summary"/>
+        <result property="problem" column="problem"/>
+        <result property="tomorrowPlan" column="tomorrow_plan"/>
+        <result property="advise" column="advise"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createName" column="create_name"/>
+    </resultMap>
+    
+    
+    <insert id="save" parameterType="io.renren.modules.work.entity.WorkDailyEntity" useGeneratedKeys="true" keyProperty="id">
+		insert work_daily
+		(
+			`name`, 
+			`work_date`,
+			`dept_id`,
+			`plan_task`,
+			`actual_task`,
+			`work_summary`,
+			`problem`,
+			`tomorrow_plan`,
+			`advise`,
+			`user_id`,
+			`create_time`
+		)
+		values
+		(
+			#{name},
+			#{workDate},
+			#{deptId},
+			#{planTask},
+			#{actualTask},
+			#{workSummary},
+			#{problem},
+			#{tomorrowPlan},
+			#{advise},
+			#{userId},
+			#{createTime}
+		)
+	</insert>
+
+
+</mapper>
